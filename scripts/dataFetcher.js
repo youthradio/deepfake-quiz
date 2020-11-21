@@ -63,6 +63,8 @@ function markdown2html(data) {
               'style',
               'strong',
               'i',
+              'li',
+              'ul',
             ],
             KEEP_CONTENT: true,
           }

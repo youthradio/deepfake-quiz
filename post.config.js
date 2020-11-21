@@ -2,7 +2,7 @@ module.exports = {
   baseURL: process.env.BASE_URL_PRODUCTION || '/deepfake-quiz',
   title: 'DeepFake Quiz',
   author: 'Zoe Harwood',
-  publishDate: 'Oct. 2, 2019',
+  publishDate: 'Nov. 25, 2020',
   location: 'Oakland, CA',
   description:
     'People have been showing their support for Black Lives Matter on TikTok, Twitter, and Instagram, but do social media posts help the movement?',

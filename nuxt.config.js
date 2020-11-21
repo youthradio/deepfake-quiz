@@ -8,8 +8,6 @@ export default {
   env: {
     baseUrl: POSTCONFIG.baseURL || 'http://localhost:3000',
   },
-  mode: 'universal',
-
   telemetry: false,
   /*
    ** Headers of the page
