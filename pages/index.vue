@@ -8,55 +8,47 @@
         <!-- Slides -->
         <swiper-slide>
           <div
-            class="flex items-center h-100 w-100 bg-dark-gray white cover"
-            style="background: url(featurex1125.jpg) no-repeat center"
+            class="flex items-center absolute w-100 h-100 white"
+            style="
+              background-image: url(gifs/opening-deepfakes.gif);
+              background-position: center;
+              background-size: cover;
+            "
           >
             <article class="measure ml6-ns ph3">
-              <h1 class="day-sans f1-ns f2 lh-title">DEEP</h1>
-              <h3 class="roboto-mono fw3 f3-ns f4 lh-title">
+              <h1 class="day-sans f1-ns f3 lh-title">
+                What's Your Take On Deepfakes? Artificial Intelligence Gets
+                "Real"
+              </h1>
+              <!-- <h3 class="roboto-mono fw3 f3-ns f4 lh-title">
                 Five Social Media Moves That Helped And Hurt #BlackLivesMatter
-              </h3>
+              </h3> -->
               <h4 class="assistant normal">By Zoe Harwood</h4>
               <h4 class="assistant normal">11.25.20</h4>
             </article>
           </div>
         </swiper-slide>
         <swiper-slide>
-          <article class="measure lh-copy ph3 white">
-            <div v-html="articleData.intro.text"></div>
+          <article class="ph3 white flex-ns flex-wrap justify-center">
+            <div
+              class="measure lh-copy center"
+              v-html="articleData.intro.text"
+            ></div>
+            <div class="center measure pl4-ns">
+              <p></p>
+              <video class="db w-100" autoplay loop muted playsinlines>
+                <source :src="`${articleData.intro.image}.webm`" />
+                <source :src="`${articleData.intro.image}.mp4`" />
+                <img class="db w-100" :src="`${articleData.intro.image}.gif`" />
+              </video>
+            </div>
           </article>
         </swiper-slide>
         <template v-for="(scenario, i) in scenarios">
-          <swiper-slide :key="`scenario-prompt-${i}`" class="relative">
-            <div
-              class="absolute w-100 h-100"
-              :style="{
-                backgroundImage: `url(${scenario.image}.gif)`,
-                backgroundPosition: 'center',
-                backgroundSize: 'cover',
-              }"
-            ></div>
-            <article class="measure lh-copy ph3 relative">
-              <div
-                class="bg-green br4 ph3 pv1"
-                v-html="scenario.prompt.text"
-              ></div>
-              <div class="flex justify-center mt3">
-                <a
-                  href=""
-                  class="no-underline black bg-green br4 db pa2 grow mh2"
-                >
-                  <span>{{ scenario.option.a.content }}</span>
-                </a>
-                <a
-                  href=""
-                  class="no-underline black bg-green br4 db pa2 grow mh2"
-                >
-                  <span>{{ scenario.option.b.content }}</span>
-                </a>
-              </div>
-            </article>
-          </swiper-slide>
+          <scenario-question
+            :key="`scenario-prompt-${i}`"
+            :scenario="scenario"
+          ></scenario-question>
         </template>
         <swiper-slide>
           <article class="measure lh-copy ph3 white">
@@ -118,6 +110,8 @@ import POSTCONFIG from '../post.config'
 import MenuHeader from '~/components/Header/MenuHeader'
 import ShareContainer from '~/components/Custom/ShareContainer'
 import SwiperSlide from '~/components/Custom/SwiperSlide'
+import ScenarioQuestion from '~/components/Custom/ScenarioQuestion'
+
 import ArticleData from '~/data/data.json'
 
 export default {
@@ -125,6 +119,7 @@ export default {
     MenuHeader,
     ShareContainer,
     SwiperSlide,
+    ScenarioQuestion,
   },
   mixins: [CommonUtils],
   asyncData(ctx) {
@@ -207,5 +202,8 @@ export default {
 }
 .disable-mouse {
   pointer-events: none;
+}
+.swiper-slide {
+  // min-height: 100vh;
 }
 </style>

@@ -1,6 +1,6 @@
 module.exports = {
   baseURL: process.env.BASE_URL_PRODUCTION || '/deepfake-quiz',
-  title: 'DeepFake Quiz',
+  title: `What's Your Take On Deepfakes? Artificial Intelligence Gets "Real"`,
   author: 'Zoe Harwood',
   publishDate: 'Nov. 25, 2020',
   location: 'Oakland, CA',
