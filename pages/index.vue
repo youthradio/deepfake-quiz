@@ -15,10 +15,10 @@
                 loop
                 muted
                 playsinlines
-                poster="gifs/open.gif"
+                poster="gifs/open.jpg"
               >
                 <source src="gifs/open.mp4" />
-                <source src="gifs/open.wbm" />
+                <source src="gifs/open.webp" />
               </video>
             </div>
             <article class="measure ml6-ns ph3 relative center tc">
@@ -42,10 +42,16 @@
             ></div>
             <div class="center measure pb6-ns ph3-ns">
               <p></p>
-              <video class="db w-100" autoplay loop muted playsinlines>
-                <source :src="`${articleData.intro.image}.webm`" />
+              <video
+                class="db w-100"
+                autoplay
+                loop
+                muted
+                playsinlines
+                :poster="`${articleData.intro.image}.jpg`"
+              >
+                <source :src="`${articleData.intro.image}.webp`" />
                 <source :src="`${articleData.intro.image}.mp4`" />
-                <img class="db w-100" :src="`${articleData.intro.image}.gif`" />
               </video>
             </div>
           </article>
