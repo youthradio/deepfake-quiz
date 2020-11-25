@@ -158,10 +158,10 @@ export default {
             enabled: true,
             onlyInViewport: false,
           },
-          threshold: 10,
+          threshold: 5,
           mousewheel: {
             eventsTarget: document.body,
-            sensitivity: 0.5,
+            sensitivity: 1,
             releaseOnEdges: true,
           },
           direction: 'vertical',

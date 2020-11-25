@@ -25,4 +25,5 @@ module.exports = {
     },
   ],
   dataPath: 'data/data.json',
+  POLLSERVER: 'https://ee51aej7u4.execute-api.us-west-2.amazonaws.com/latest',
 }
