@@ -7,25 +7,25 @@
       <div class="swiper-wrapper">
         <!-- Slides -->
         <swiper-slide>
-          <div
-            class="flex items-center absolute w-100 h-100 white"
-            style="
-              background-image: url(gifs/opening-deepfakes.gif);
-              background-position: center;
-              background-size: cover;
-            "
-          >
-            <article class="measure ml6-ns ph3">
-              <h1 class="day-sans f1-ns f3 lh-title">
-                What's Your Take On Deepfakes? Artificial Intelligence Gets
-                "Real"
-              </h1>
-              <!-- <h3 class="roboto-mono fw3 f3-ns f4 lh-title">
-                Five Social Media Moves That Helped And Hurt #BlackLivesMatter
-              </h3> -->
+          <div class="flex items-center absolute w-100 h-100 white items-end">
+            <div class="absolute w-100 h-100 z--1 op o-30">
+              <video class="db w-100" autoplay loop muted playsinlines>
+                <source src="gifs/open.web" />
+                <source src="gifs/open.mp4" />
+                <img class="db w-100" src="gifs/open.gif" />
+              </video>
+            </div>
+            <article class="measure ml6-ns ph3 relative center tc">
+              <h1 class="day-sans f1-ns f3 lh-title">Doing a Double Take</h1>
+              <h3 class="roboto-mono fw3 f3-ns f4 lh-title">
+                Four Deepfake Scenarios That Mess With Our Minds
+              </h3>
               <h4 class="assistant normal">By Zoe Harwood</h4>
               <h4 class="assistant normal">11.25.20</h4>
             </article>
+            <small class="absolute left-1 bottom-1 o-20"
+              >Photo by Youtube / Matthias Niessner</small
+            >
           </div>
         </swiper-slide>
         <swiper-slide>
@@ -34,7 +34,7 @@
               class="measure lh-copy center"
               v-html="articleData.intro.text"
             ></div>
-            <div class="center measure pl4-ns">
+            <div class="center measure">
               <p></p>
               <video class="db w-100" autoplay loop muted playsinlines>
                 <source :src="`${articleData.intro.image}.webm`" />
@@ -64,29 +64,12 @@
         <swiper-slide>
           <article class="ph3 white">
             <h3 class="roboto-mono fw6 f3-ns f4 lh-title">CREDITS</h3>
-            <dl class="f6 lh-title mv2">
-              <dt class="dib b green">Writer</dt>
-              <dd class="dib ml0">Zoe Harwood</dd>
-            </dl>
-            <dl class="f6 lh-title mv2">
-              <dt class="dib b green">Editors</dt>
-              <dd class="dib ml0">Marjerrie Masicat, Lissa Soep</dd>
-            </dl>
-            <dl class="f6 lh-title mv2">
-              <dt class="dib b green">Producers</dt>
-              <dd class="dib ml0">
-                Victoria Balla, Zoe Harwood, Dante Ruberto, Ariel Tang, Nimah
-                Gobir, Devin Glover
-              </dd>
-            </dl>
-            <dl class="f6 lh-title mv2">
-              <dt class="dib b green">Designer</dt>
-              <dd class="dib ml0">Marjerrie Masicat</dd>
-            </dl>
-            <dl class="f6 lh-title mv2">
-              <dt class="dib b green">Developer</dt>
-              <dd class="dib ml0">Radamés Ajna</dd>
-            </dl>
+            <template v-for="credit in articleData.credits">
+              <dl :key="credit.ttitle" class="f6 lh-title mv2">
+                <dt class="dib b green">{{ credit.title }}:</dt>
+                <dd class="dib ml0">{{ credit.names }}</dd>
+              </dl>
+            </template>
           </article>
         </swiper-slide>
       </div>
@@ -205,5 +188,10 @@ export default {
 }
 .swiper-slide {
   // min-height: 100vh;
+}
+video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 </style>
