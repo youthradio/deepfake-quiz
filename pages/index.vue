@@ -9,10 +9,16 @@
         <swiper-slide>
           <div class="flex items-center absolute w-100 h-100 white items-end">
             <div class="absolute w-100 h-100 z--1 op o-30">
-              <video class="db w-100" autoplay loop muted playsinlines>
-                <source src="gifs/open.web" />
+              <video
+                class="db w-100"
+                autoplay
+                loop
+                muted
+                playsinlines
+                poster="gifs/open.gif"
+              >
                 <source src="gifs/open.mp4" />
-                <img class="db w-100" src="gifs/open.gif" />
+                <source src="gifs/open.wbm" />
               </video>
             </div>
             <article class="measure ml6-ns ph3 relative center tc">
@@ -34,7 +40,7 @@
               class="measure lh-copy center"
               v-html="articleData.intro.text"
             ></div>
-            <div class="center measure">
+            <div class="center measure pb6-ns ph3-ns">
               <p></p>
               <video class="db w-100" autoplay loop muted playsinlines>
                 <source :src="`${articleData.intro.image}.webm`" />
@@ -46,11 +52,14 @@
         </swiper-slide>
         <template v-for="(scenario, i) in scenarios">
           <scenario-question
+            ref="scenarios"
             :key="`scenario-prompt-${i}`"
             :scenario="scenario"
+            :next="(i + 1) % scenarios.length"
+            @next-page="nextPage"
           ></scenario-question>
         </template>
-        <swiper-slide>
+        <swiper-slide ref="conclusion">
           <article class="measure lh-copy ph3 white">
             <div v-html="articleData.conclusion.text"></div>
             <ShareContainer
@@ -88,6 +97,7 @@
 
 <script>
 import Swiper from 'swiper'
+import scrollIntoView from 'scroll-into-view-if-needed'
 import CommonUtils from '../mixins/CommonUtils'
 import POSTCONFIG from '../post.config'
 import MenuHeader from '~/components/Header/MenuHeader'
@@ -124,6 +134,16 @@ export default {
     this.resizeFn()
   },
   methods: {
+    nextPage(next) {
+      const el = next
+        ? this.$refs.scenarios[next].$el
+        : this.$refs.conclusion.$el
+
+      scrollIntoView(el, {
+        block: 'end',
+        behavior: 'smooth',
+      })
+    },
     resizeFn() {
       if (window.innerWidth > 800) {
         this.swiper = new Swiper(this.$refs.container, {
@@ -132,9 +152,10 @@ export default {
             enabled: true,
             onlyInViewport: false,
           },
+          threshold: 10,
           mousewheel: {
             eventsTarget: document.body,
-            sensitivity: 1,
+            sensitivity: 0.5,
             releaseOnEdges: true,
           },
           direction: 'vertical',
@@ -193,5 +214,8 @@ video {
   object-fit: cover;
   width: 100%;
   height: 100%;
+}
+button {
+  font-family: $assistant;
 }
 </style>
