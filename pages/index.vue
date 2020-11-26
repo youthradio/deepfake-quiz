@@ -14,11 +14,12 @@
                 autoplay
                 loop
                 muted
-                playsinlines
+                playsinline
                 poster="gifs/open.jpg"
+                defaultMuted
               >
-                <source src="gifs/open.mp4" />
-                <source src="gifs/open.webp" />
+                <source src="gifs/open.mp4" type="video/mp4" />
+                <source src="gifs/open.webp" type="video/webp" />
               </video>
             </div>
             <article class="measure ml6-ns ph3 relative center tc">
@@ -47,11 +48,17 @@
                 autoplay
                 loop
                 muted
-                playsinlines
+                playsinline
                 :poster="`${articleData.intro.image}.jpg`"
               >
-                <source :src="`${articleData.intro.image}.webp`" />
-                <source :src="`${articleData.intro.image}.mp4`" />
+                <source
+                  :src="`${articleData.intro.image}.webp`"
+                  type="video/webp"
+                />
+                <source
+                  :src="`${articleData.intro.image}.mp4`"
+                  type="video/mp4"
+                />
               </video>
             </div>
           </article>
