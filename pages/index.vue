@@ -87,13 +87,14 @@
         <swiper-slide>
           <article class="white measure ml6-ns ph3 relative center lh-copy">
             <h3 class="roboto-mono fw6 f3-ns f4 lh-title">CREDITS</h3>
+            <div v-html="articleData.credits.text"></div>
+
             <template v-for="credit in articleData.credits.list">
               <dl :key="credit.ttitle" class="lh-title mv2">
                 <dt class="dib b green">{{ credit.title }}:</dt>
-                <dd class="dib ml0">{{ credit.names }}</dd>
+                <dd class="di ml0">{{ credit.names }}</dd>
               </dl>
             </template>
-            <div v-html="articleData.credits.text"></div>
           </article>
         </swiper-slide>
       </div>
