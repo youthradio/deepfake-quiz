@@ -8,7 +8,7 @@
         <!-- Slides -->
         <swiper-slide>
           <div class="flex items-center absolute w-100 h-100 white items-end">
-            <div class="absolute w-100 h-100 z--1 op o-30">
+            <div class="absolute w-100 h-100 z--1 op o-50">
               <video
                 class="db w-100"
                 autoplay
@@ -36,30 +36,31 @@
           </div>
         </swiper-slide>
         <swiper-slide>
-          <article class="ph3 white flex-ns flex-wrap justify-center">
+          <article class="ph3 white flex-ns flex-wrap justify-center h-auto">
             <div
               class="measure lh-copy center"
               v-html="articleData.intro.text"
             ></div>
-            <div class="center measure pb6-ns ph3-ns">
-              <p></p>
-              <video
-                class="db w-100"
-                autoplay
-                loop
-                muted
-                playsinline
-                :poster="`${articleData.intro.image}.jpg`"
-              >
-                <source
-                  :src="`${articleData.intro.image}.webp`"
-                  type="video/webp"
-                />
-                <source
-                  :src="`${articleData.intro.image}.mp4`"
-                  type="video/mp4"
-                />
-              </video>
+            <div class="center flex items-center h-auto measure ph3-ns">
+              <div>
+                <video
+                  class="db w-100"
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  :poster="`${articleData.intro.image}.jpg`"
+                >
+                  <source
+                    :src="`${articleData.intro.image}.webp`"
+                    type="video/webp"
+                  />
+                  <source
+                    :src="`${articleData.intro.image}.mp4`"
+                    type="video/mp4"
+                  />
+                </video>
+              </div>
             </div>
           </article>
         </swiper-slide>
@@ -84,7 +85,7 @@
           </article>
         </swiper-slide>
         <swiper-slide>
-          <article class="f6 white measure ml6-ns ph3 relative center">
+          <article class="white measure ml6-ns ph3 relative center lh-copy">
             <h3 class="roboto-mono fw6 f3-ns f4 lh-title">CREDITS</h3>
             <template v-for="credit in articleData.credits.list">
               <dl :key="credit.ttitle" class="lh-title mv2">
@@ -153,6 +154,10 @@ export default {
         ? this.$refs.scenarios[next].$el
         : this.$refs.conclusion.$el
 
+      if (window.innerWidth > 800) {
+        this.swiper.slideNext()
+        return
+      }
       scrollIntoView(el, {
         block: 'end',
         behavior: 'smooth',
