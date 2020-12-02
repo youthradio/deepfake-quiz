@@ -55,5 +55,5 @@ jobs:
           key: ${{ secrets.key }}
           port: ${{ secrets.PORT }}
           script: |
-            cd static/doing-it-for-the-gram
+            cd static/double-take-four-deepfake-scenarios
             git fetch && git reset --hard FETCH_HEAD && git clean -df
