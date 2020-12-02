@@ -1,11 +1,11 @@
 module.exports = {
   baseURL: process.env.BASE_URL_PRODUCTION || '/deepfake-quiz',
-  title: `What's Your Take On Deepfakes? Artificial Intelligence Gets "Real"`,
+  title: `Doing a Double Take: Four Deepfake Scenarios That Mess With Our Minds`,
   author: 'Zoe Harwood',
-  publishDate: 'Nov. 25, 2020',
+  publishDate: 'Dec. 2, 2020',
   location: 'Oakland, CA',
   description:
-    'People have been showing their support for Black Lives Matter on TikTok, Twitter, and Instagram, but do social media posts help the movement?',
+    'Deepfakes use artificial intelligence to manipulate a person’s voice and image. From movies to music, news to the workplace, how do we draw the line between the real and the fake?',
   tweetMessage: 'with @itsyrmedia',
   url: 'https://interactive.yr.media/doing-it-for-the-gram/',
   featureImage: 'https://interactive.yr.media/doing-it-for-the-gram/social.jpg',

@@ -34,7 +34,7 @@ jobs:
       - run: yarn install --frozen-lockfile      
       - name: Rebuild for Production
         env:
-          BASE_URL_PRODUCTION: /doing-it-for-the-gram
+          BASE_URL_PRODUCTION: /double-take-four-deepfake-scenarios
         run: yarn publish-ghpages
 
       - name: Deploy Production
