@@ -7,8 +7,9 @@ module.exports = {
   description:
     'Deepfakes use artificial intelligence to manipulate a person’s voice and image. From movies to music, news to the workplace, how do we draw the line between the real and the fake?',
   tweetMessage: 'with @itsyrmedia',
-  url: 'https://interactive.yr.media/doing-it-for-the-gram/',
-  featureImage: 'https://interactive.yr.media/doing-it-for-the-gram/social.jpg',
+  url: 'https://interactive.yr.media/double-take-four-deepfake-scenarios',
+  featureImage:
+    'https://interactive.yr.media/double-take-four-deepfake-scenarios/social.jpg',
   featureImagePath: 'images/template-feature-image',
   featureImageDescription: 'People Protesting BLM',
   featureImageCaption: '(Photo: Andersen Ross Photography Inc/Getty Images)',
