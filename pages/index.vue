@@ -28,7 +28,7 @@
                 Four Deepfake Scenarios That Mess With Our Minds
               </h3>
               <h4 class="assistant normal">By Zoe Harwood</h4>
-              <h4 class="assistant normal">11.25.20</h4>
+              <h4 class="assistant normal">12.02.20</h4>
             </article>
             <small class="absolute left-1 bottom-1 o-20"
               >Photo by Youtube / Matthias Niessner</small
