@@ -155,7 +155,7 @@ export default {
         ? this.$refs.scenarios[next].$el
         : this.$refs.conclusion.$el
 
-      if (window.innerWidth > 800) {
+      if (window.innerWidth > 800 && window.innerHeight > 640) {
         this.swiper.slideNext()
         return
       }
@@ -165,7 +165,7 @@ export default {
       })
     },
     resizeFn() {
-      if (window.innerWidth > 800) {
+      if (window.innerWidth > 800 && window.innerHeight > 640) {
         this.swiper = new Swiper(this.$refs.container, {
           loop: false,
           keyboard: {
@@ -199,7 +199,7 @@ export default {
 <style lang="scss">
 @import '~@/assets/css/styles';
 
-@media screen and (min-width: 800px) {
+@media screen and (min-height: 641px) and (min-width: 800px) {
   @import '~@/node_modules/swiper/swiper';
   .swiper-pagination {
     position: absolute;
