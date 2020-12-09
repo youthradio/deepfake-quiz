@@ -28,6 +28,8 @@ marked.setOptions({
   xhtml: false,
 })
 
+// marked simply provides a markdown parser that we output to DOMPurify
+
 const renderer = {
   link(href, title, text) {
     return `<a target="_blank" rel="nofollow" href="${href}" class="link green underline underline-hover hover-dark-green">${text}</a>`
@@ -83,6 +85,8 @@ function markdown2html(data) {
   interate(copy)
   return copy
 }
+
+// Our markdown uses html tags before being put in a html document, so converting those lines using DOMPurify to it's respective tags based on the what Gootenberg fetches will return objects that can be inserted using Vue's props.
 
 async function customFetcher(DOC_ID) {
   let convertedData = null

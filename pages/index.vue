@@ -137,6 +137,7 @@ export default {
       articleData: ArticleData.content[0],
       scenarios: ArticleData.content[0].scenarios,
     }
+    // The data needed to hydrate our components are now here and assigned to objects, Refer to notes in 'scripts/dataFetcher.js' and 'scripts/getdata.js'
   },
   data() {
     return {
