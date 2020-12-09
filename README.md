@@ -1,10 +1,15 @@
-# Static Generator Template
+# deepfake-quiz
 
 > My stunning Nuxt.js project
 
-After creating a new project from this template you will have to add our components submodule
+When creating a new project from this template, you will have to add our components submodule
 
-This command will clone our base components repository
+This command will clone the project and our components recursively
+```
+git clone --recursive git@github.com:youthradio/deepfake-quiz.git
+```
+
+Otherwise, this command will clone our base components repository
 
 ```bash
 git submodule add git@github.com:youthradio/base-components.git components
@@ -14,17 +19,17 @@ git submodule add git@github.com:youthradio/base-components.git components
 
 ``` bash
 # install dependencies
-$ npm run install
+$ yarn install
 
 # serve with hot reload at localhost:3000
-$ npm run dev
+$ yarn run dev
 
 # build for production and launch server
-$ npm run build
-$ npm run start
+$ yarn run build
+$ yarn run start
 
 # generate static project
-$ npm run generate
+$ yarn run generate
 ```
 
 ## Initial setup up for gh-pages worktree branch
